@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <title>Homework_6</title>
+    <link rel="stylesheet" href="styles/reset.css" type="text/css">
+    <link rel="stylesheet" media="(max-width: 499px)" href="styles/styles.css" type="text/css">
+    <link rel="stylesheet" media="(min-width: 500px) and (max-width:766px)" href="styles/styles.css" type="text/css">
+    <link rel="stylesheet" media="(min-width: 767px)" href="styles/styles.css" type="text/css">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <header>
+        <h1>Qulix</h1>
+        <nav class="hamburger-menu">
+            <input type="checkbox" class="h-menu">
+            <ul class="mobile links">
+                <li><a href="">Menu item</a></li>
+                <li><a href="">Menu item</a></li>
+                <li><a href="">Menu item</a></li>
+                <li><a href="">Menu item</a></li>
+                <li><a href="">Menu item</a></li>
+            </ul>
+            <span class="hmbrg">
+                <em></em>
+                <em></em>
+                <em></em>
+            </span>
+        </nav>
+        <div class="header-wrapper flex-container-row">
+
+            <div class="header-logo">
+                <img class="header-logo-image" src="images/logo.png">
+            </div>
+            <div class="mobile logo">
+                <img class="logo" src="images/logo-white.png">
+            </div>
+            <div class="header-menu flex-container-row">
+                <span class="mobile">Page title</span>
+                <div class="header-menu__page-dropdown">
+                    <a href="" class="city-name">New York</a>
+                    <i class="fa fa-angle-down"></i>
+                </div>
+                <div class="header-menu__notifier-icon">
+                    <i class="fa fa-bell"></i>
+                </div>
+                <div class="header-menu__mail">
+                    <i class="fa fa-envelope"></i>
+                </div>
+                <a class="header-menu__user-profile flex-container-row" href="">
+                    <span class="header-menu__user-profile-name">User name</span>
+                    <img class="header-menu__user-profile-avatar" src="images/userPhoto.jpg">
+                </a>
+                <div class="header-menu_search">
+                    <input class="header-menu_search-input" type="text" placeholder="Search ...">
+                    <i class="fa fa-search"></i>
+                </div>
+            </div>
+        </div>
+        <nav class="header-navigation flex-container-row">
+            <div class="header-navigation__item">
+                <a href="">Menu item</a>
+            </div>
+            <div class="header-navigation__item">
+                <a href="">Menu item</a>
+            </div>
+            <div class="header-navigation__item">
+                <a href="">Menu item</a>
+            </div>
+            <div class="header-navigation__item">
+                <a href="">Menu item</a>
+            </div>
+            <div class="header-navigation__item">
+                <a href="">Menu item</a>
+            </div>
+        </nav>
+    </header>
+    <main class="main flex-container-row">
+        <aside id="aside" class="aside-menu flex-container__item flex-container-column">
+            <ul>
+                <li class="submenu__item"><a href="">Submenu item 7d</a></li>
+                <li class="submenu__item"><a href="">Submenu item 5d</a></li>
+                <li class="submenu">Submenu</li>
+                <li class="submenu__item"><a href="">Submenu item 7d</a></li>
+                <li class="submenu__item"><a href="">Submenu item 2d</a></li>
+                <li class="submenu__item"><a href="">Submenu item 4d</a></li>
+                <li class="submenu__item"><a href="">More tags ..</a></li>
+                <li class="submenu">Submenu</li>
+                <li class="submenu__item"><a href="">Submenu item 1d</a></li>
+                <li class="submenu__item"><a href="">Submenu item 1d</a></li>
+                <li class="submenu">Submenu</li>
+                <li class="submenu__item"><a href="">Submenu item 4d</a></li>
+                <li class="submenu__item"><a href="">Submenu item 2d</a></li>
+                <li class="submenu__item"><a href="">Submenu item1 & Submenu item2 2d</a></li>
+                <li class="submenu__item"><a href="">Submenu item 7d</a></li>
+                <li class="submenu__item"><a href="">Submenu item 1d</a></li>
+                <li class="submenu__item"><a href="">Submenu item 1d</a></li>
+                <li class="submenu">Submenu</li>
+                <li class="submenu__item"><a href="">Submenu item 2d</a></li>
+                <li class="submenu__item"><a href="">Submenu item 1d</a></li>
+                <li class="submenu__item"><a href="">Submenu item 3d</a></li>
+            </ul>
+        </aside>
+        <section class="section flex-container__item">
+            <div class="section__title-pane flex-container-row flex-container__item-item">
+                <h2><span>Page title in </span><a href="" class="section__title-pane-name city-name">New York</a><i
+                        class="fa fa-angle-down"></i></h2>
+            </div>
+            <div class="section__actions-pane flex-container-row flex-container__item-item">
+                <i class="fa fa-search mobile"></i>
+                <div class="section__actions-pane-search">
+                    <input class="section__actions-pane-search-input" type="text" id="t1" placeholder="Search ...">
+                </div>
+                <i class="fa fa-plus mobile"></i>
+                <div class="section__actions-pane-add-item">+ New item</div>
+                <div class="section__actions-pane-filter"><i class="fa fa-sliders"></i></div>
+            </div>
+            <figure class="flex-container-row flex-container__item-item">
+                <img src="images/photo1.jpg">
+                <article class="flex-container-column">
+                    <div class="article__post-info flex-container-row">
+                        <div class="article__name flex-container-row">
+                            <span class="article__username">User name</span>
+                            <span class="article__username-label label-membership">Pro</span>
+                        </div>
+                        <div class="article__info flex-container-row">
+                            <div class="article__info_comments"><i class="fa fa-comments"></i> 2</div>
+                            <div class="article__info_time"><i class="fa fa-clock-o"></i> 20m</div>
+                        </div>
+                    </div>
+                    <div>
+                        <h3>Item title 1</h3>
+                    </div>
+                    <p class="post">Suspendisse potenti. Duis imperdiet ex non leo condimentum efficitur. Sed rhoncus
+                        eleifend lacus sit amet faucibus. Nunc semper nisl a dolor pretium dapibus quis quis lacus.
+                        Nulla faucibus viverra laoreet. Fusce in scelerisque magna. Duis porta erat vitae lectus lacinia
+                        tempus.</div>
+                        <div class="figure-article__tag">
+                            <i class="fa fa-tag"></i> tag1, tag2, tag3</div>
+                </article>
+            </figure>
+            <figure class="flex-container-row flex-container__item-item">
+                <img src="images/photo2.jpg">
+                <article class="flex-container-column">
+                    <div class="article__post-info flex-container-row">
+                        <div class="article__name flex-container-row">
+                            <span class="article__username">User name</span>
+                            <span class="label-membership">Member</span>
+                        </div>
+                        <div class="article__info flex-container-row">
+                            <div class="article__info_comments"><i class="fa fa-comments"></i> 2</div>
+                            <div class="article__info_time"><i class="fa fa-clock-o"></i> 20m</div>
+                        </div>
+                    </div>
+                    <div>
+                        <h3>Item title 2</h3>
+                    </div>
+                    <p class="post">Suspendisse potenti. Duis imperdiet ex non leo condimentum efficitur. Sed rhoncus
+                        eleifend lacus sit amet faucibus. Nunc semper nisl a dolor pretium dapibus quis quis lacus.
+                        Nulla faucibus viverra laoreet. Fusce in scelerisque magna. Duis porta erat vitae lectus lacinia
+                        tempus.</div>
+                        <div class="figure-article__tag"><i class="fa fa-tag"></i> tag1, tag2, tag3</div>
+                </article>
+            </figure>
+            <figure class="flex-container-row flex-container__item-item">
+                <img src="images/photo3.jpg">
+                <article class="flex-container-column">
+                    <div class="article__post-info flex-container-row">
+                        <div class="article__name flex-container-row">
+                            <span class="article__username">User name</span>
+                            <span class="article__username label-membership">Member</span>
+                        </div>
+                        <div class="article__info flex-container-row">
+                            <div class="article__info_comments"><i class="fa fa-comments"></i> 2</div>
+                            <div class="article__info_time"><i class="fa fa-clock-o"></i> 20m</div>
+                        </div>
+                    </div>
+                    <div>
+                        <h3>Item title 3</h3>
+                    </div>
+                    <p class="post">Suspendisse potenti. Duis imperdiet ex non leo condimentum efficitur. Sed rhoncus
+                        eleifend lacus sit amet faucibus. Nunc semper nisl a dolor pretium dapibus quis quis lacus.
+                        Nulla faucibus viverra laoreet. Fusce in scelerisque magna. Duis porta erat vitae lectus lacinia
+                        tempus.</div>
+                        <div class="figure-article__tag"><i class="fa fa-tag"></i> tag1, tag2, tag3</div>
+                </article>
+            </figure>
+            <figure class="flex-container-row flex-container__item-item">
+                <img src="images/photo4.jpg">
+                <article class="flex-container-column">
+                    <div class="article__post-info flex-container-row">
+                        <div class="article__name flex-container-row">
+                            <span class="article__username">User name</span>
+                            <span class="article__username label-membership">Member</span>
+                        </div>
+                        <div class="article__info flex-container-row">
+                            <div class="article__info_comments"><i class="fa fa-comments"></i> 2</div>
+                            <div class="article__info_time"><i class="fa fa-clock-o"></i> 20m</div>
+                        </div>
+                    </div>
+                    <div>
+                        <h3>Item title 4</h3>
+                    </div>
+                    <p class="post">Suspendisse potenti. Duis imperdiet ex non leo condimentum efficitur. Sed rhoncus
+                        eleifend lacus sit amet faucibus. Nunc semper nisl a dolor pretium dapibus quis quis lacus.
+                        Nulla faucibus viverra laoreet. Fusce in scelerisque magna. Duis porta erat vitae lectus lacinia
+                        tempus.</p>
+                    <div class="figure-article__tag"><i class="fa fa-tag"></i> tag1, tag2, tag3</div>
+                </article>
+            </figure>
+            <div class="post__navigation flex-container-row flex-container__item-item">
+                <button class="button post__navigation_button">
+                    <span class="post__navigation_button-label"><i class="fa fa-angle-left"></i><span>Previous</span></span>
+                </button>
+                <button class="button post__navigation_button">
+                    <span class="post__navigation_button-label"><span>Next</span><i class="fa fa-angle-right"></i></span>
+                </button>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="footer-menu">
+            <ul class="footer-menu__items">
+                <li class="footer-menu__item"><a href="">About</a></li>
+                <li class="footer-menu__item"><a href="">Policies</a></li>
+                <li class="footer-menu__item"><a href="">Site map</a></li>
+                <li class="footer-menu__item"><a href="">Help</a></li>
+                <li class="footer-menu__item"><a href="">Contact us</a></li>
+            </ul>
+        </div>
+        <div class="copy flex-container-row">
+            <img src="images/logo-min.png">
+            <p>© 2015. Qulix Systems. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+
+</html>
