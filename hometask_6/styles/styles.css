@@ -367,21 +367,35 @@ button.post__navigation_button {
 
 .post__navigation_button>span {
     font: 14px Arial;
+    color: inherit;
 }
 
 .fa.fa-angle-right {
     margin-left: 12px;
+    color: inherit;
 }
 
 .fa.fa-angle-left {
     margin-right: 12px;
+    color: inherit;
 }
 
 button.post__navigation_button:hover {
     cursor: pointer;
     background-color: var(--subheader-font-color);
-    font-size: 20px;
     color: white;
+    display: inline-block;
+    vertical-align: middle;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0);
+    position: relative;
+    -webkit-transition-property: all;
+    transition-property: all;
+    -webkit-transition-duration: 1s;
+    transition-duration: 1s;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-font-smoothing: antialiased;
 }
 
 li.submenu__item a {
@@ -508,12 +522,13 @@ nav.hamburger-menu input:checked~span em:nth-last-child(2) {
     input[type='text'].section__actions-pane-search-input {
         width: 100%;
         background-position-x: 90%;
-        transition-property: width;
+        transition-property: all;
         transition: linear;
         -webkit-transition: linear;
         -moz-transition: linear;
         -ms-transition: linear;
         -o-transition: linear;
+        transition-duration: 1s;
     }
     .mobile {
         display: flex;
