@@ -1,67 +1,67 @@
 /*
 TASK1
  */
-function Animal(name) {
-    this.name = name;
-    this._foodAmount = 50;
-}
-
-Animal.prototype._formatFoodAmount = function () {
-    return (this._foodAmount + ' гр.');
-}
-Animal.prototype.feed = function () {
-    console.log('Насыпаем в миску ' + this.dailyNorm() + ' корма.');
-};
-
-Animal.prototype.dailyNorm = function (amount) {
-    if (!arguments.length) return this._formatFoodAmount();
-
-    if (amount < 50) {
-        throw new Error("Значение должно быть больше 50");
-    }
-    if (amount > 500) {
-        throw new Error("Нельзя дать корма больше, чем 500 гр.");
-    }
-
-    this._foodAmount = amount;
-
-}
-
-function Cat(name) {
-    Animal.apply(this, arguments);
-}
-
-Cat.prototype = Object.create(Animal.prototype);
-Cat.prototype.constructor = Cat;
-
-Cat.prototype.feed = function () {
-    Animal.prototype.feed.apply(this, arguments);
-    console.log('Кот доволен ^_^');
-    return this;
-}
-
-Cat.prototype.stroke = function () {
-    console.log('Гладим кота.');
-    return this;
-}
-
-
-var barsik = new Cat('Barsik');
-
-console.log(barsik.name);
-
-console.log(barsik.dailyNorm());
-barsik.feed();
-
-barsik.dailyNorm(100);
-barsik.feed();
-barsik.stroke().feed().stroke().stroke().feed();
-barsik.dailyNorm(350);
-console.log(barsik.dailyNorm());
-barsik.feed();
-
-barsik.feed().stroke().feed().feed().stroke().stroke().feed();
-barsik = null;
+// function Animal(name) {
+//     this.name = name;
+//     this._foodAmount = 50;
+// }
+//
+// Animal.prototype._formatFoodAmount = function () {
+//     return (this._foodAmount + ' гр.');
+// }
+// Animal.prototype.feed = function () {
+//     console.log('Насыпаем в миску ' + this.dailyNorm() + ' корма.');
+// };
+//
+// Animal.prototype.dailyNorm = function (amount) {
+//     if (!arguments.length) return this._formatFoodAmount();
+//
+//     if (amount < 50) {
+//         throw new Error("Значение должно быть больше 50");
+//     }
+//     if (amount > 500) {
+//         throw new Error("Нельзя дать корма больше, чем 500 гр.");
+//     }
+//
+//     this._foodAmount = amount;
+//
+// }
+//
+// function Cat(name) {
+//     Animal.apply(this, arguments);
+// }
+//
+// Cat.prototype = Object.create(Animal.prototype);
+// Cat.prototype.constructor = Cat;
+//
+// Cat.prototype.feed = function () {
+//     Animal.prototype.feed.apply(this, arguments);
+//     console.log('Кот доволен ^_^');
+//     return this;
+// }
+//
+// Cat.prototype.stroke = function () {
+//     console.log('Гладим кота.');
+//     return this;
+// }
+//
+//
+// var barsik = new Cat('Barsik');
+//
+// console.log(barsik.name);
+//
+// console.log(barsik.dailyNorm());
+// barsik.feed();
+//
+// barsik.dailyNorm(100);
+// barsik.feed();
+// barsik.stroke().feed().stroke().stroke().feed();
+// barsik.dailyNorm(350);
+// console.log(barsik.dailyNorm());
+// barsik.feed();
+//
+// barsik.feed().stroke().feed().feed().stroke().stroke().feed();
+// barsik = null;
 
 /*
 TASK 2
@@ -82,7 +82,7 @@ var initialObj = {
         },
         object3: {}
     },
-    method: function () {
+    amethod: function () {
         alert('Hello');
     }
 };
@@ -118,6 +118,7 @@ var clonedObj = deepClone(initialObj);
 // clonedObj.object.object2.array2[1].name = 'Vasya';
 // clonedObj.array.push(2);
 // initialObj.test="hi";
+//initialObj.amethod=function(){alert("1");}
 
 console.log(initialObj);
 console.log(clonedObj);
@@ -147,7 +148,7 @@ function deepCompare(obj1, obj2) {
             }
 
             return temp;
-        } else if (obj1 === 'function') {
+        } else if (typeof obj1 === 'function') {
             return obj1.toString() === obj2.toString();
         } else {
             return obj1 === obj2;
