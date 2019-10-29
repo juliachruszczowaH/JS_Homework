@@ -1,67 +1,67 @@
 /*
 TASK1
  */
-// function Animal(name) {
-//     this.name = name;
-//     this._foodAmount = 50;
-// }
-//
-// Animal.prototype._formatFoodAmount = function () {
-//     return (this._foodAmount + ' гр.');
-// }
-// Animal.prototype.feed = function () {
-//     console.log('Насыпаем в миску ' + this.dailyNorm() + ' корма.');
-// };
-//
-// Animal.prototype.dailyNorm = function (amount) {
-//     if (!arguments.length) return this._formatFoodAmount();
-//
-//     if (amount < 50) {
-//         throw new Error("Значение должно быть больше 50");
-//     }
-//     if (amount > 500) {
-//         throw new Error("Нельзя дать корма больше, чем 500 гр.");
-//     }
-//
-//     this._foodAmount = amount;
-//
-// }
-//
-// function Cat(name) {
-//     Animal.apply(this, arguments);
-// }
-//
-// Cat.prototype = Object.create(Animal.prototype);
-// Cat.prototype.constructor = Cat;
-//
-// Cat.prototype.feed = function () {
-//     Animal.prototype.feed.apply(this, arguments);
-//     console.log('Кот доволен ^_^');
-//     return this;
-// }
-//
-// Cat.prototype.stroke = function () {
-//     console.log('Гладим кота.');
-//     return this;
-// }
-//
-//
-// var barsik = new Cat('Barsik');
-//
-// console.log(barsik.name);
-//
-// console.log(barsik.dailyNorm());
-// barsik.feed();
-//
-// barsik.dailyNorm(100);
-// barsik.feed();
-// barsik.stroke().feed().stroke().stroke().feed();
-// barsik.dailyNorm(350);
-// console.log(barsik.dailyNorm());
-// barsik.feed();
-//
-// barsik.feed().stroke().feed().feed().stroke().stroke().feed();
-// barsik = null;
+function Animal(name) {
+    this.name = name;
+    this._foodAmount = 50;
+}
+
+Animal.prototype._formatFoodAmount = function () {
+    return (this._foodAmount + ' гр.');
+}
+Animal.prototype.feed = function () {
+    console.log('Насыпаем в миску ' + this.dailyNorm() + ' корма.');
+};
+
+Animal.prototype.dailyNorm = function (amount) {
+    if (!arguments.length) return this._formatFoodAmount();
+
+    if (amount < 50) {
+        throw new Error("Значение должно быть больше 50");
+    }
+    if (amount > 500) {
+        throw new Error("Нельзя дать корма больше, чем 500 гр.");
+    }
+
+    this._foodAmount = amount;
+
+}
+
+function Cat(name) {
+    Animal.apply(this, arguments);
+}
+
+Cat.prototype = Object.create(Animal.prototype);
+Cat.prototype.constructor = Cat;
+
+Cat.prototype.feed = function () {
+    Animal.prototype.feed.apply(this, arguments);
+    console.log('Кот доволен ^_^');
+    return this;
+}
+
+Cat.prototype.stroke = function () {
+    console.log('Гладим кота.');
+    return this;
+}
+
+
+var barsik = new Cat('Barsik');
+
+console.log(barsik.name);
+
+console.log(barsik.dailyNorm());
+barsik.feed();
+
+barsik.dailyNorm(100);
+barsik.feed();
+barsik.stroke().feed().stroke().stroke().feed();
+barsik.dailyNorm(350);
+console.log(barsik.dailyNorm());
+barsik.feed();
+
+barsik.feed().stroke().feed().feed().stroke().stroke().feed();
+barsik = null;
 
 /*
 TASK 2
