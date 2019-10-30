@@ -131,7 +131,7 @@ TASK 3
 
 function deepCompare(obj1, obj2) {
     if (typeof obj1 === typeof obj1) {
-        if (typeof obj1 == "object" && obj1 != null && obj1 !== 'function') {
+        if (typeof obj1 == "object" && obj1 != null) {
             for (var k in obj2) {
                 if (!obj1.hasOwnProperty(k)) return false;
             }
