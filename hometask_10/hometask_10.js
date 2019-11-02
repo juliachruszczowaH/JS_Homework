@@ -18,13 +18,13 @@ function filterNumbersArr(numbers) {
 console.log(filterNumbersArr([-1, 0, 2, 34, -2]));
 */
 
-function filterNumbersArr1(numbers) {
+function filterNumbersArr(numbers) {
     return numbers.filter(function (el) {
         return el > 0
     })
 }
 
-console.log(filterNumbersArr1([-1, 0, 2, 34, -2]));
+console.log(filterNumbersArr([-1, 0, 2, 34, -2]));
 
 
 //  Задание 2:
