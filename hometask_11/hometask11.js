@@ -48,21 +48,16 @@ console.log(getVowelsNumber('А не должно быть "топорным"'))
 
 
 function counterLetters(txt) {
-    var arr = txt.split(/([.|!|?])/);
-    var temp = [];
-    do {
-        temp.push(arr.splice(0, 2));
-    } while (arr.length >= 2);
-    temp.forEach(function (item) {
-        var sent = item.join('').trim();
+    var arr = txt.split(/[.|!|\\?]/);
+    arr.filter(function (el) {
+        return el.length > 0;
+    }).forEach(function (item) {
+        var sent = item.trim();
         console.log(sent + ' -> ' + +sent.split(/[^A-Za-zА-Яа-я0-9_]/).join('').length);
     })
-
-
 }
 
-console.log(counterLetters('Написать функцию, которая будет принимать текст в качестве параметра! У текста должны быть пробелы, точки, запятые, восклицательные и вопросительные знаки. Текст необходимо разбить на предложения (по точкам, восклицательным и вопросительным знакам - убрав их - разрешается использовать регулярное выражение в методе split)? Для каждого из предложений вывести текст предложения и рядом количество букв в нем (без учета пробелов, запятых - именно букв).'));
-
+console.log(counterLetters('Написать функцию, которая будет принимать текст в качестве параметра! У текста должны быть пробелы, точки, запятые, восклицательные и вопросительные знаки. Текст необходимо разбить на предложения (по точкам, восклицательным и вопросительным знакам - убрав их - разрешается использовать регулярное выражение в методе split)'));
 
 // Задание 5 *:
 // Написать функцию, которая будет находить в переданном ей тексте наиболее часто повторяемое слово и возвращать
@@ -81,7 +76,7 @@ function counterRepeatedWord(txt) {
     for (var i = 0; i < arr.length; i++) {
         var item = arr[i];
         if (item !== '') {
-            var count = -1;
+            var count = 0;
             for (var j = 0; j < arr.length; j++) {
                 if (item === arr[j]) ++count;
             }
@@ -108,7 +103,7 @@ function bubbleSort(arr) {
     return arr;
 }
 
-console.log(counterRepeatedWord('Написать серо-голубой функцию, серо-голубой которая будет принимать серо-голубой текст в качестве параметра! У текста должны быть пробелы, точки, запятые, восклицательные и вопросительные знаки. Текст необходимо разбить на предложения (по точкам, восклицательным и вопросительным знакам - убрав их - разрешается использовать регулярное выражение в методе split)? Для каждого из предложений вывести текст предложения и рядом количество букв в нем (без учета пробелов, запятых - именно букв).'));
+console.log(counterRepeatedWord('aaa ggg bbb rrr aaa ddd bbb ggg bbb aaa sss bbb bbbb'));
 
 //Способ 2
 function counterRepeatedWord(txt) {
@@ -119,7 +114,7 @@ function counterRepeatedWord(txt) {
     for (var i = 0; i < arr.length; i++) {
         var item = arr[i];
         if (item !== '') {
-            var count = -1;
+            var count = 0;
             for (var j = 0; j < arr.length; j++) {
                 if (item === arr[j]) ++count;
             }
@@ -128,7 +123,11 @@ function counterRepeatedWord(txt) {
         }
     }
     var max = Math.max.apply(null, temp);
+    /*
+    вот откуда взят код
+    https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Math/max
+    */
     return (`"Максимальное число повторений у слова "${o[max]}" - ${max}`);
 }
 
-console.log(counterRepeatedWord('Написать функцию, которая будет принимать текст в качестве параметра! У текста должны быть пробелы, точки, запятые, восклицательные и вопросительные знаки. Текст необходимо разбить на предложения (по точкам, восклицательным и вопросительным знакам - убрав их - разрешается использовать регулярное выражение в методе split)? Для каждого из предложений вывести текст предложения и рядом количество букв в нем (без учета пробелов, запятых - именно букв).'));
+console.log(counterRepeatedWord('aaa ggg bbb rrr aaa ddd bbb ggg bbb aaa sss bbb bbbb'));
