@@ -1,0 +1,19 @@
+table {
+    border-collapse: collapse;
+}
+
+td {
+    width: 200px;
+    height: 40px;
+    border: 1px solid black;
+    text-align: center;
+}
+
+input {
+    background-color: whitesmoke;
+}
+
+.button_cell {
+    text-wrap: normal;
+    cursor: pointer;
+}
