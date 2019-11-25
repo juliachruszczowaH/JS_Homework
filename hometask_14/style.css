@@ -1,0 +1,148 @@
+* {
+    /*Reset's every elements apperance*/
+    background: none repeat scroll 0 0 transparent;
+    border: medium none;
+    border-spacing: 0;
+    color: #26589F;
+    font-family: 'PT Sans Narrow', sans-serif;
+    font-size: 16px;
+    font-weight: normal;
+    line-height: 1.42rem;
+    list-style: none outside none;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+    text-decoration: none;
+    text-indent: 0;
+}
+
+body {
+    background-color: darkslategrey;
+}
+
+body > div:first-child {
+    padding: 15px;
+}
+
+.inline {
+    display: inline-block;
+}
+
+button {
+    cursor: pointer;
+    outline: none;
+}
+
+.primary_button {
+    background-color: lightslategrey;
+    color: whitesmoke;
+    text-align: center;
+    width: 140px;
+    height: 40px;
+    border-radius: 20px;
+    margin: 20px;
+}
+
+.active {
+    background-color: beige;
+}
+
+.not-active {
+    background-color: lightslategrey;
+    overflow: visible;
+    color: whitesmoke;
+}
+
+button.tablink:hover {
+    background-color: #99a1b3;
+}
+
+.users_container, .profile {
+    display: flex;
+}
+
+button.tablink {
+    width: 80px;
+    height: 60px;
+    padding: 20px;
+    border-top: 1px solid darkslategrey;
+    border-left: 1px solid darkslategrey;
+    border-bottom: 1px solid darkslategrey;
+}
+
+button.tablink, article > p {
+    display: flex;
+    flex-direction: column;
+}
+
+.profile {
+    background-color: beige;
+    padding: 15px;
+    width: 550px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border-top: 1px solid lightslategrey;
+    border-right: 1px solid lightslategrey;
+    border-bottom: 1px solid lightslategrey;
+}
+
+.users_container, .profile, article {
+    padding: 30px;
+}
+
+img {
+    height: 250px;
+    width: 250px;
+}
+
+.warning {
+    background-color: antiquewhite;
+    color: darkred;
+    border: 1px dashed darkred;
+    padding: 40px;
+}
+
+.loader {
+    border: 7px solid beige;
+    border-radius: 50%;
+    border-top: 7px solid lightslategrey;
+    border-bottom: 7px solid lightslategrey;
+    width: 10px;
+    height: 10px;
+    animation: spin 2s linear infinite;
+}
+
+@-webkit-keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.hidden {
+    display: none;
+    vertical-align: baseline;
+}
+
+div.tabs > button:first-child {
+    border-top-left-radius: 20px;
+}
+
+div.tabs > button:last-child {
+    border-bottom-left-radius: 20px;
+}
+a{
+    color: darkslategrey;
+    margin-top: 20px;
+}
