@@ -78,7 +78,7 @@ button.tablink, article > p {
 .profile {
     background-color: beige;
     padding: 15px;
-    width: 550px;
+    min-width: 550px;
     border-top-right-radius: 20px;
     border-bottom-right-radius: 20px;
     border-top: 1px solid lightslategrey;

@@ -2,6 +2,10 @@ var body = document.getElementsByTagName('body')[0],
     button = document.getElementsByClassName('primary_button')[0],
     loader = document.getElementsByClassName('loader')[0];
 
+if(localStorage.length){
+    createTabs(JSON.parse(localStorage.getItem('users')).length);
+    renderSelectedUserInfo(JSON.parse(localStorage.getItem('users'))[0]);
+}
 
 button
     .addEventListener('click', function () {
@@ -21,49 +25,43 @@ button
 
 
 function getUserList() {
-    var xhr = new XMLHttpRequest(),
-        warnings = document.getElementsByClassName('warning');
+        var xhr = new XMLHttpRequest(),
+            warnings = document.getElementsByClassName('warning');
 
-    xhr.open('GET', 'https://reqres.in/api/users?page=2', true);
+        xhr.open('GET', 'https://reqres.in/api/users?page=1', true);
 
-    xhr.send();
+        xhr.send();
 
-    xhr.onerror = function () {
-        loader.classList.add('hidden');
-        if (warnings.length == 0) {
-            createWarningPane();
-        }
-    };
-
-    xhr.onloadend = function () {
-        try {
-            var data = JSON.parse(this.response).data;
-        } catch (e) {
-            console.log('No data received');
-        }
-
-        loader.classList.add('hidden');
-
-        if (String(this.status)[0] == 2 && data.length > 0) {
-            var i = 1;
-            localStorage.clear();
-            data.forEach(function (item) {
-                localStorage.setItem(`user${i}`, JSON.stringify(item));
-                ++i;
-            });
-
-            createTabs(i - 1);
-
-            document.getElementsByClassName('users_container')[0].appendChild(
-                createPane(data[0]['avatar'], data[0]['first_name'], data[0]['last_name'], data[0]['email']));
-
-        } else {
-            if (warnings.length == 0) {
+        xhr.onerror = function () {
+            loader.classList.add('hidden');
+            if (!warnings.length) {
                 createWarningPane();
             }
-        }
-    }
+        };
 
+        xhr.onloadend = function () {
+            try {
+                var data = JSON.parse(this.response).data;
+            } catch (e) {
+                console.log('No data received');
+            }
+
+            loader.classList.add('hidden');
+
+            if (String(this.status)[0] == 2 && data.length > 0) {
+                var i = 1;
+                localStorage.clear();
+                localStorage.setItem('users', JSON.stringify(data));
+                var usersList = JSON.parse(localStorage.getItem('users'));
+                createTabs(usersList.length);
+                renderSelectedUserInfo(usersList[0]);
+
+            } else {
+                if (!warnings.length) {
+                    createWarningPane();
+                }
+            }
+        }
 }
 
 function createTabs(num) {
@@ -76,7 +74,6 @@ function createTabs(num) {
     for (var i = 1; i <= num; ++i) {
         var tab = nav.appendChild(document.createElement('button'));
 
-        tab.setAttribute(`id`, `${i}`);
         tab.classList.add('tablink');
         (i === 1) ? tab.classList.add('active') : tab.classList.add('not-active');
         tab.innerText = `User${i}`;
@@ -84,11 +81,11 @@ function createTabs(num) {
 
     nav.addEventListener('click', function (e) {
         var target = e.target,
-            key = target.innerText.toLowerCase(),
-            avatar = JSON.parse(localStorage.getItem(key))['avatar'],
-            firstN = JSON.parse(localStorage.getItem(key))['first_name'],
-            lastN = JSON.parse(localStorage.getItem(key))['last_name'],
-            mail = JSON.parse(localStorage.getItem(key))['email'];
+            key = target.innerText[target.innerText.length - 1],
+            avatar = JSON.parse(localStorage.getItem('users'))[key - 1]['avatar'],
+            firstN = JSON.parse(localStorage.getItem('users'))[key - 1]['first_name'],
+            lastN = JSON.parse(localStorage.getItem('users'))[key - 1]['last_name'],
+            mail = JSON.parse(localStorage.getItem('users'))[key - 1]['email'];
 
         updateActiveTab(target);
 
@@ -141,3 +138,7 @@ function updateActiveTab(item) {
     item.classList.add('active');
 }
 
+function renderSelectedUserInfo(user){
+    return document.getElementsByClassName('users_container')[0].appendChild(
+        createPane(user['avatar'], user['first_name'], user['last_name'], user['email']));
+}
