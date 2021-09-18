@@ -3,8 +3,11 @@ var body = document.getElementsByTagName('body')[0],
     loader = document.getElementsByClassName('loader')[0];
 
 if(localStorage.length){
-    createTabs(JSON.parse(localStorage.getItem('users')).length);
-    renderSelectedUserInfo(JSON.parse(localStorage.getItem('users'))[0]);
+    var existingData = JSON.parse(localStorage.getItem('users'));
+    createTabs(existingData.length);
+    document.getElementsByClassName('users_container')[0].appendChild(
+        createPane(existingData[0]));
+    
 }
 
 button
@@ -81,20 +84,15 @@ function createTabs(num) {
 
     nav.addEventListener('click', function (e) {
         var target = e.target,
-            key = target.innerText[target.innerText.length - 1],
-            avatar = JSON.parse(localStorage.getItem('users'))[key - 1]['avatar'],
-            firstN = JSON.parse(localStorage.getItem('users'))[key - 1]['first_name'],
-            lastN = JSON.parse(localStorage.getItem('users'))[key - 1]['last_name'],
-            mail = JSON.parse(localStorage.getItem('users'))[key - 1]['email'];
+            key = target.innerText[target.innerText.length - 1];
 
         updateActiveTab(target);
-
-        updatePane(avatar, firstN, lastN, mail);
+        updatePane(JSON.parse(localStorage.getItem('users'))[key - 1]);
     }, false);
 
 }
 
-function createPane(img, firstName, lastName, mail) {
+function createPane(user) {
     var pane = body.appendChild(document.createElement('div')),
         image = pane.appendChild(document.createElement('img')),
         article = pane.appendChild(document.createElement('article')),
@@ -103,23 +101,23 @@ function createPane(img, firstName, lastName, mail) {
         email = article.appendChild(document.createElement('a'));
 
     pane.classList.add('profile');
-    image.setAttribute('src', img);
-    fName.innerText = `First Name: ${firstName}`;
+    image.setAttribute('src', user['avatar']);
+    fName.innerText = `First Name: ${user['first_name']}`;
     fName.classList.add('first_name');
-    lName.innerText = `Last Name: ${lastName}`;
+    lName.innerText = `Last Name: ${user['last_name']}`;
     lName.classList.add('last_name');
-    email.innerText = `${mail}`;
-    email.setAttribute('href', `mailto: ${mail}`);
+    email.innerText = `${user['email']}`;
+    email.setAttribute('href', `mailto: ${user['email']}`);
 
     return pane;
 }
 
-function updatePane(img, firstName, lastName, mail) {
-    document.getElementsByTagName('img')[0].setAttribute('src', img);
-    document.getElementsByClassName('first_name')[0].innerText = `First Name: ${firstName}`;
-    document.getElementsByClassName('last_name')[0].innerText = `Last Name: ${lastName}`;
-    document.getElementsByTagName('a')[0].innerText = `${mail}`;
-    document.getElementsByTagName('a')[0].setAttribute('href', `mailto: ${mail}`);
+function updatePane(user) {
+    document.getElementsByTagName('img')[0].setAttribute('src', user['avatar']);
+    document.getElementsByClassName('first_name')[0].innerText = `First Name: ${user['first_name']}`;
+    document.getElementsByClassName('last_name')[0].innerText = `Last Name: ${user['last_name']}`;
+    document.getElementsByTagName('a')[0].innerText = `${user['email']}`;
+    document.getElementsByTagName('a')[0].setAttribute('href', `mailto: ${user['email']}`);
 }
 
 function createWarningPane() {
@@ -139,6 +137,6 @@ function updateActiveTab(item) {
 }
 
 function renderSelectedUserInfo(user){
-    return document.getElementsByClassName('users_container')[0].appendChild(
-        createPane(user['avatar'], user['first_name'], user['last_name'], user['email']));
+    document.getElementsByClassName('users_container')[0].appendChild(
+        createPane(user));
 }
